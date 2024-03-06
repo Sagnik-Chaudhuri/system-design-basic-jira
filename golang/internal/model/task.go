@@ -33,6 +33,10 @@ type ITask interface {
 	GetAssignee() string
 	GetType() TaskType
 	GetDueDate() time.Time
+	SetAssignee(string)
+	SetTitle(title string)
+	SetType(taskType TaskType)
+	SetDueDate(dueDate time.Time)
 }
 
 func (t *Task) GetTitle() string {
@@ -46,4 +50,18 @@ func (t *Task) GetType() TaskType {
 }
 func (t *Task) GetDueDate() time.Time {
 	return t.DueDate
+}
+func (t *Task) SetAssignee(assignee string) {
+	t.Assignee = assignee
+}
+func (t *Task) SetTitle(title string) {
+	t.Title = title
+}
+
+func (t *Task) SetType(taskType TaskType) {
+	t.Type = taskType
+}
+
+func (t *Task) SetDueDate(dueDate time.Time) {
+	t.DueDate = dueDate
 }

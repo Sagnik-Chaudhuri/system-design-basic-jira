@@ -33,3 +33,8 @@ func (f *FeatureTaskFactory) CreateTask(title string, assignee string, dueDate t
 		Status:         model.TASK_STATUS_OPEN,
 	}, nil
 }
+
+func (f *FeatureTaskFactory) UpdateTaskAssignee(task model.ITask, assignee string) (model.ITask, error) {
+	task.SetAssignee(assignee)
+	return task, nil
+}

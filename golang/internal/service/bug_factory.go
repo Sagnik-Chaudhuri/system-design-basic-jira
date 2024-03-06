@@ -29,3 +29,8 @@ func (b *BugTaskFactory) CreateTask(title string, assignee string, dueDate time.
 		Status:   model.TASK_STATUS_OPEN,
 	}, nil
 }
+
+func (b *BugTaskFactory) UpdateTaskAssignee(task model.ITask, assignee string) (model.ITask, error) {
+	task.SetAssignee(assignee)
+	return task, nil
+}

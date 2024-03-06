@@ -24,3 +24,8 @@ func (s *StoryTaskFactory) CreateTask(title string, assignee string, dueDate tim
 		Status:       model.TASK_STATUS_OPEN,
 	}, nil
 }
+
+func (s *StoryTaskFactory) UpdateTaskAssignee(task model.ITask, assignee string) (model.ITask, error) {
+	task.SetAssignee(assignee)
+	return task, nil
+}

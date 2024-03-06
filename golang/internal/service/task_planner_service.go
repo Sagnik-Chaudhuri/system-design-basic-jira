@@ -8,11 +8,14 @@ import (
 	"time"
 )
 
-var allowedStatus = map[model.TaskType][]model.TaskStatus{
-	model.TASK_TYPE_FEATURE: {model.TASK_STATUS_OPEN, model.TASK_STATUS_IN_PROGRESS, model.TASK_STATUS_TESTING, model.TASK_STATUS_DEPLOYED},
-	model.TASK_TYPE_BUG:     {model.TASK_STATUS_OPEN, model.TASK_STATUS_IN_PROGRESS, model.TASK_STATUS_FIXED},
-	model.TASK_TYPE_STORY:   {model.TASK_STATUS_OPEN, model.TASK_STATUS_IN_PROGRESS, model.TASK_STATUS_COMPLETED},
-}
+var (
+	allowedStatus = map[model.TaskType][]model.TaskStatus{
+		model.TASK_TYPE_FEATURE: {model.TASK_STATUS_OPEN, model.TASK_STATUS_IN_PROGRESS, model.TASK_STATUS_TESTING, model.TASK_STATUS_DEPLOYED},
+		model.TASK_TYPE_BUG:     {model.TASK_STATUS_OPEN, model.TASK_STATUS_IN_PROGRESS, model.TASK_STATUS_FIXED},
+		model.TASK_TYPE_STORY:   {model.TASK_STATUS_OPEN, model.TASK_STATUS_IN_PROGRESS, model.TASK_STATUS_COMPLETED},
+		// to be used in respective task status change methods of the respective task factories
+	}
+)
 
 type TaskPlannerServiceImpl struct {
 	Tasks               []*model.ITask
